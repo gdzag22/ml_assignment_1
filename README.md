@@ -260,7 +260,7 @@ Test RMSE:  0.1454,
 Test R2:    0.8867,
 CV RMSE:    0.1483,
 
-#### Kaggle: 0.15180
+#### Kaggle: 0.15176
 
 
 
