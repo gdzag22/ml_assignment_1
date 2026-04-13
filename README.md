@@ -1,10 +1,28 @@
 # House Prices - Advanced Regression Techniques
-კონკურსის მიმოხილვა:
+
+
+### კონკურსის მიმოხილვა:
+
 ჩვენი მიზანია დავატრენინგოთ მოდელი, რომელიც დააფრედიქთებს თითოეული სახლის საბოლოო გასაყიდ ფასს Ames, Iowa-ში. მონაცემები მოიცავს 79 feature-ს, რომლებიც აღწერენ თითოუელ სახლს (მაგალითად, სამეზობლო, ავტოფარეხის ზომა, სარდაფი და ა.შ.). შეფასებისთვის Kaggle განსზაღვრავს RMSE-ის SalesPrice-ის ლოგარითმზე.
 
 ### მიდგომა:
 
 ჩემი მიზანი იყო, რომ დამტრენინგებინა შეძელბისდაგავარად საუკეთესო მოდელი. მე ვცადე ბევრი სხვადასხვა მიდგომა სხვადასხვა ეტაპზე (cleaning, feature engineering, feature selection, traiing) და გავაანალიზე, რამ იმუშავა, რამ არა, რატომ იმუშავა კონკრეტულმა მიდგომამ ან რატომ არ იმუშავა და ა.შ. შეფასების მეტრიკად Kaggle იყენებს RMSE-ს, ამიტომ, ცხადია, მე ყოველ ნაბიჯზე ვაკვირდებოდი მოდელის შედეგს rmse-ის საშუალებით. თუმცა, გარდა ამისა, ვიყენებდი R2 score-ს (მოგვიანებით ასევე CV scores-ს), რათა კარგად დამენახა სრული სურათი. გარდა ამისა, კონკრეტულ ნაბიჯებზე ვაკვირდებოდი plot-ებს და გამომქონდა შესაბამის დასკვნები.
+
+## რეპოზიტორიის სტრუქტურა
+
+```
+ml_assignment_1/
+├── model_experiment.ipynb
+├── model_inference.ipynb
+└── README.md
+```
+
+| ფაილი | აღწერა |
+|------|-------------|
+| `model_experiment.ipynb` | მთავარი ნოუთბუქი, რომელშიც არის EDA, data cleaning, feature engineering, feature selection, model training და MLflow tracking. |
+| `model_inference.ipynb` | ჩამოტვირთავს საუკეთესო მოდელს MLflow-დან და აგენერირებს შედეგს |
+| `README.md` | პროექტის დოკუმენტაცია |
 
 ## Feature Engineering:
 
@@ -213,6 +231,40 @@ Random forest კარგად უმკლავდება არა წრ
 
 
 ## MLflow Tracking
+
+### ექსპერიმენტების ბმული:
+
+https://dagshub.com/gdzag22/ml_assignment_1.mlflow
+
+https://dagshub.com/gdzag22/ml_assignment_1/experiments
+
+### მეტრიკების აღწერა:
+
+
+
+| მეტრიკები | აღწერა |
+|---|---|
+| train_rmse | RMSE ტრენინგ დატაზე |
+| test_rmse | RMSE ტესტ დატაზე |
+| train_r2 | R2 score ტრენინგ დატაზე |
+| test_r2 | R2 score ტესტ დატაზე |
+| cv_rmse | 5-Fold Cross Validation RMSE (მხოლოდ რამდენიმე საუკეთესო მოდელისთვის) |
+
+
+### საუკეთესო მოდელის შედეგები:
+
+საუკეთესო მოდელი:  Random Forest (n_estimators=100, max_depth=15, min_samples_leaf=2).
+
+Train RMSE: 0.0652,
+Test RMSE:  0.1454,
+Test R2:    0.8867,
+CV RMSE:    0.1483,
+
+#### Kaggle: 0.15180
+
+
+
+
 
 
 
